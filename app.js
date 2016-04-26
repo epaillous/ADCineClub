@@ -15,10 +15,10 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'app')));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
-app.set('views', __dirname + '/public/views');
+app.set('views', __dirname + '/app/views');
 
 app.use('/movie', routes);
 
