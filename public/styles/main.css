@@ -107,3 +107,13 @@ body {
   padding: 0;
   text-align: center;
 }
+
+.movie-title {
+  margin-bottom:20px;
+  margin-left: 20px;
+  padding-left: 40px;
+  font-size: -webkit-xxx-large;
+  background-color: #e7e6e6;
+  border-style: solid;
+  border-width: 1px;
+}

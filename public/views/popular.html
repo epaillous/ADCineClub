@@ -1,7 +1,7 @@
 <div class="movies-container" id="top">
   <ul class="movies">
     <li ng-repeat="movie in movies" class="film-box" background-img="http://image.tmdb.org/t/p/w500{{movie.poster_path}}">
-      <a class="film-description" ng-href="movie/{{movie.id}}"></a>
+      <a class="film-description" ng-href="#/movie/{{movie.id}}"></a>
     </li>
   </ul>
   <div class="row">

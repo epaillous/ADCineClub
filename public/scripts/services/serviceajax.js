@@ -13,7 +13,7 @@ angular.module('cineclub')
         popular: function(page){
             return $http.get('/movie/popular?page=' + page);
         },
-        getMovieDetail: function(movie_id){
+        info: function(movie_id){
             return $http.get('/movie/' + movie_id);
         }
     };
