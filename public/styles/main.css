@@ -86,8 +86,8 @@ body {
 .film-box {
   display: inline-block;
   margin: 4px;
-  width:200px;
-  height: 300px;
+  width:18%;
+  height: 400px;
 }
 
 
@@ -101,4 +101,9 @@ body {
   position:relative;
   width:100%;
   height: 100%;
+}
+
+.movies {
+  padding: 0;
+  text-align: center;
 }

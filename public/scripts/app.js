@@ -25,6 +25,11 @@ angular
         controller: 'PopularCtrl',
         controllerAs: 'popular'
       })
+      .when('/movie/:id', {
+        templateUrl: 'views/movie.html',
+        controller: 'MovieCtrl',
+        controllerAs: 'movie'
+      })
       .otherwise({
         redirectTo: '/'
       });

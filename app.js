@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/popular');
+var routes = require('./routes/movie');
 
 var app = express();
 
@@ -20,7 +20,7 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/public/views');
 
-app.use('/popular', routes);
+app.use('/movie', routes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
