@@ -15,6 +15,9 @@ angular.module('cineclub')
         },
         info: function(movie_id){
             return $http.get('/movie/' + movie_id);
+        },
+        search: function(query, page){
+            return $http.get("/movie/search?q=" + query + "&page=" + page);
         }
-    };
+    }
   });

@@ -31,10 +31,21 @@ app.use(function(req, res, next) {
 
 // error handlers
 
+// catch error from movie db
+app.use(function(err, req, res, next) {
+  if (err.response && err.response.text) {
+    res.status(err.status || 500);
+    res.send(err.response.text);
+  } else {
+    next(err);
+  }
+});
+
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
+    console.log(err.status);
     res.status(err.status || 500);
     res.send('error', {
       message: err.message,

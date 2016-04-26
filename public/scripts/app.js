@@ -30,6 +30,11 @@ angular
         controller: 'MovieCtrl',
         controllerAs: 'movie'
       })
+      .when('/search/:query', {
+        templateUrl: 'views/popular.html',
+        controller: 'SearchCtrl',
+        controllerAs: 'search'
+      })
       .otherwise({
         redirectTo: '/'
       });
