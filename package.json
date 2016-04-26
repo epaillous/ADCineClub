@@ -43,6 +43,6 @@
   },
   "scripts": {
     "start": "node ./bin/www",
-    "postinstall": "bower install && grunt build"
+    "postinstall": "bower install && ./node_modules/grunt-cli/bin/grunt build"
   }
 }
