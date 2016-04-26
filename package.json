@@ -44,6 +44,6 @@
   },
   "scripts": {
     "start": "node ./bin/www",
-    "postinstall": "bower install && grunt uglify"
+    "postinstall": "bower install && grunt build"
   }
 }
