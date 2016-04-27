@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/movie');
 
 var app = express();
+var db  = require('./db');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

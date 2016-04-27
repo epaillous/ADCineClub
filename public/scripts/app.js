@@ -35,6 +35,16 @@ angular
         controller: 'SearchCtrl',
         controllerAs: 'search'
       })
+      .when('/login', {
+        controller: 'LoginCtrl',
+        templateUrl: 'views/login.html',
+        controllerAs: 'login'
+      })
+      .when('/register', {
+        controller: 'RegisterCtrl',
+        templateUrl: 'views/register.html',
+        controllerAs: 'register'
+      })
       .otherwise({
         redirectTo: '/'
       });

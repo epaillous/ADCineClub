@@ -37,8 +37,10 @@
     "grunt-wiredep": "^2.0.0",
     "jit-grunt": "^0.9.1",
     "jshint-stylish": "^1.0.0",
+    "knex": "^0.10.0",
     "morgan": "~1.6.1",
     "moviedb": "^0.2.3",
+    "pg": "^4.5.4",
     "serve-favicon": "~2.3.0",
     "time-grunt": "^1.0.0"
   },
