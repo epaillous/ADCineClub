@@ -11,7 +11,6 @@ angular.module('cineclub')
   .controller('RegisterCtrl', function ($scope, serviceAjax) {
     $scope.dataLoading = false;
     $scope.register = function() {
-      console.log("coucou");
       $scope.dataLoading = true;
       serviceAjax.register($scope.first_name, $scope.last_name, $scope.email, $scope.password, function (response) {
           if (response.success) {
