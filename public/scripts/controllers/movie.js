@@ -13,7 +13,6 @@ angular.module('cineclub')
         $scope.loading = true;
         var id = $routeParams.id;
         serviceAjax.info(id).success(function(data){
-          console.log(data);
           $scope.movie = data;
         });
     };

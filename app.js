@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 //var flash = require("flash");
 var passport = require("passport");
 LocalStrategy = require('passport-local').Strategy;
+var bcrypt = require('bcrypt-nodejs');
 
 
 var routes = require('./routes/movie');
@@ -14,6 +15,7 @@ var authenticate = require('./routes/authentication');
 
 var app = express();
 var db  = require('./db');
+var User = require('./models/user');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -40,7 +42,7 @@ passport.use(new LocalStrategy({
     passwordField: 'password'
   },
   function(username, password, done) {
-   new Model.User({email: username}).fetch().then(function(data) {
+   new User({email: username}).fetch().then(function(data) {
       var user = data;
       if(user === null) {
          return done(null, false, {message: 'no user found with this email'});
@@ -56,11 +58,11 @@ passport.use(new LocalStrategy({
 }));
 
 passport.serializeUser(function(user, done) {
-  done(null, user.username);
+  done(null, user.email);
 });
 
 passport.deserializeUser(function(username, done) {
-   new Model.User({email: username}).fetch().then(function(user) {
+   new User({email: username}).fetch().then(function(user) {
       done(null, user);
    });
 });
