@@ -8,15 +8,18 @@
  * Factory in the cineclub.
  */
 angular.module('cineclub')
-  .factory('auth', function ($http) {
+  .factory('auth', function ($http, $cookies) {
   var user;
 
   return {
       setUser : function(aUser){
-          user = aUser;
+          var existing_cookie_user = $cookies.get('cineclub.user');
+          user = aUser || existing_cookie_user;
+          $cookies.put('cineclub.user', user);
       },
       isLoggedIn : function(){
-          return(user)? user : false;
+        var current_user = user || $cookies.get('cineclub.user');
+          return(current_user)? current_user : false;
       },
       login: function(email, password){
           return $http.post("/login", {email: email, password: password});

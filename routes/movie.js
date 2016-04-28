@@ -38,8 +38,10 @@ router.get('/:id(\\d+)/', function(req, res, next) {
     } else {
       data.backdrop_path = image_path(data.backdrop_path);
       data.poster_path = image_path(data.poster_path);
-      data.belongs_to_collection.poster_path = image_path(data.belongs_to_collection.poster_path);
-      data.belongs_to_collection.backdrop_path = image_path(data.belongs_to_collection.backdrop_path);
+      if (data.belongs_to_collection) {
+        data.belongs_to_collection.poster_path = image_path(data.belongs_to_collection.poster_path);
+        data.belongs_to_collection.backdrop_path = image_path(data.belongs_to_collection.backdrop_path);
+      }
       res.send(data);
     }
   });
