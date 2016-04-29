@@ -3,12 +3,12 @@
 var bookshelf = require('../db');
 var ModelBase = require('bookshelf-modelbase')(bookshelf);
 
-var User = ModelBase.extend({
-  tableName: 'users',
+var Screening = ModelBase.extend({
+  tableName: 'screenings',
   hasTimestamps: true,
   movies: function() {
     return this.belongsToMany(Movie);
   }
 });
 
-module.exports = User;
+module.exports = Screening;

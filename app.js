@@ -8,14 +8,28 @@ var bodyParser = require('body-parser');
 var passport = require("passport");
 LocalStrategy = require('passport-local').Strategy;
 var bcrypt = require('bcrypt-nodejs');
+var adminApp = require('express-admin');
 
-
-var routes = require('./routes/movie');
+var movieRoutes = require('./routes/movie');
+var userRoutes = require('./routes/user');
+var screeningRoutes = require('./routes/screening');
 var authenticate = require('./routes/authentication');
 
 var app = express();
 var db  = require('./db');
 var User = require('./models/user');
+
+var config = {
+    dpath: './admin_config/',
+    config: require('./admin_config/config.json'),
+    settings: require('./admin_config/settings.json'),
+    users: require('./admin_config/users.json'),
+    custom: require('./admin_config/custom.json'),
+};
+
+adminApp.init(config, function (err, admin) {
+  app.use('/admin', admin);
+});
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -68,49 +82,10 @@ passport.deserializeUser(function(username, done) {
 });
 
 app.use('/', authenticate);
-app.use('/movie', routes);
+app.use('/movie', movieRoutes);
+app.use('/screening', screeningRoutes);
+app.use('/user', userRoutes);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
 
-// error handlers
-
-// catch error from movie db
-app.use(function(err, req, res, next) {
-  if (err.response && err.response.text) {
-    res.status(err.status || 500);
-    res.send(err.response.text);
-  } else {
-    next(err);
-  }
-});
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.send({
-      message: err.message,
-      error: err
-    });
-    return;
-  });
-}
-
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.send({
-    message: err.message,
-    error: {}
-  });
-  return;
-});
 
 module.exports = app;

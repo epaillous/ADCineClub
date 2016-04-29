@@ -9,5 +9,5 @@
  */
 angular.module('cineclub')
   .controller('NavigationCtrl', function($scope, auth) {
-    $scope.isLoggedIn = auth.isLoggedIn;
+    $scope.user = auth;
   });
