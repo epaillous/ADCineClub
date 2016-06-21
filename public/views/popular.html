@@ -2,7 +2,7 @@
   <ul class="movies">
     <li ng-repeat="movie in movies" class="film-box">
       <a class="movie-link" ng-href="#/movie/{{movie.id}}">
-        <img class="movie-poster-vitrine" ng-src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}">
+        <img class="movie-poster-vitrine" ng-src="http://image.tmdb.org/t/p/w500{{movie.poster_path}}" loading-src="{{'img/placeholder_movie.png'}}" fallback-src="{{'img/placeholder_movie.png'}}">
         <div class="film-description"></div>
       </a>
     </li>

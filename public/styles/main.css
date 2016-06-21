@@ -92,11 +92,14 @@ body {
 }
 
 .movie-poster-vitrine {
-  width:100%;
+  width: 14vw;
+  height: 22vw;
+  object-position: center;
   left: 0px;
   top: 0px;
   z-index: -1;
   position: relative;
+  margin: auto;
 }
 
 .film-description {
