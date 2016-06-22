@@ -1,0 +1,14 @@
+<h2>Prochaines séances</h2>
+  <dir ng-show="(next_screenings.length === 0)">Aucune séance programmée</dir>
+  <ul class="screenings">
+    <li ng-repeat="screening in next_screenings" class="screening">
+      {{screening.date | date:'dd/MM/yyyy'}}
+    </li>
+  </ul>
+<h2>Séances passées</h2>
+  <ul class="screenings">
+    <li ng-repeat="screening in past_screenings" class="screening">
+      {{screening.date | date:'dd/MM/yyyy'}}
+    </li>
+  </ul>
+</div>

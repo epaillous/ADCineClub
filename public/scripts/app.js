@@ -46,6 +46,11 @@ angular
         templateUrl: 'views/register.html',
         controllerAs: 'register'
       })
+      .when('/screenings', {
+        controller: 'ScreeningsCtrl',
+        templateUrl: 'views/screenings.html',
+        controllerAs: 'screenings'
+      })
       .otherwise({
         redirectTo: '/'
       });

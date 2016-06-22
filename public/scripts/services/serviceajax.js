@@ -18,6 +18,9 @@ angular.module('cineclub')
         },
         search: function(query, page){
             return $http.get("/movie/search?q=" + query + "&page=" + page);
+        },
+        screenings: function(){
+            return $http.get('/screening');
         }
     }
   });
