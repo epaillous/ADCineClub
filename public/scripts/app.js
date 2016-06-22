@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.bootstrap',
-    'dcbImgFallback'
+    'dcbImgFallback',
+    'ngRoute.middleware'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -50,6 +51,11 @@ angular
         controller: 'ScreeningsCtrl',
         templateUrl: 'views/screenings.html',
         controllerAs: 'screenings'
+      })
+      .when('/account', {
+        controller: 'AccountCtrl',
+        templateUrl: 'views/account.html',
+        controllerAs: 'account'
       })
       .otherwise({
         redirectTo: '/'

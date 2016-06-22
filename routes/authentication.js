@@ -5,15 +5,9 @@ var bcrypt = require('bcrypt-nodejs');
 var User = require('../models/user');
 
 var sign_in = function(req, res, next) {
-  passport.authenticate('local', function(err, user, info) {
-    if (err) {
-      return next(err);
-    }
-    if (!user) {
-      var error_user = new Error('User not found');
-      error_user.status = 404;
-      error_user.attribute = 'email';
-      return next(error_user);
+  return passport.authenticate('local', function(req_passport, user, err_passport) {
+    if (err_passport) {
+      return next(err_passport);
     }
     req.logIn(user, function(err) {
       if (err) {

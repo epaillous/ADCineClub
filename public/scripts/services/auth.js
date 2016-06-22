@@ -15,11 +15,12 @@ angular.module('cineclub')
       setUser : function(aUser){
           var existing_cookie_user = $cookies.get('cineclub.user');
           user = aUser || existing_cookie_user;
-          $cookies.put('cineclub.user', user);
+          $cookies.put('cineclub.user', JSON.stringify(user));
       },
       isLoggedIn : function(){
-        var current_user = user || $cookies.get('cineclub.user');
-          return(current_user)? current_user : false;
+        var current_user = user || JSON.parse($cookies.get('cineclub.user'));
+        user = current_user;
+        return(current_user)? current_user : false;
       },
       login: function(email, password){
           return $http.post("/login", {email: email, password: password});

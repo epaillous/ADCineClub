@@ -11,7 +11,8 @@
     "angular-touch": "^1.4.0",
     "bootstrap": "^3.2.0",
     "angular-bootstrap":"*",
-    "angular-img-fallback":"*"
+    "angular-img-fallback":"*",
+    "angular-middleware":"*"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0"

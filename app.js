@@ -59,11 +59,11 @@ passport.use(new LocalStrategy({
    new User({email: username}).fetch().then(function(data) {
       var user = data;
       if(user === null) {
-         return done(null, false, {message: 'no user found with this email'});
+         return done(null, false, {message: 'no user found with this email', status: 404, attribute: "email"});
       } else {
          user = data.toJSON();
          if(!bcrypt.compareSync(password, user.password)) {
-            return done(null, false, {message: 'Invalid password'});
+            return done(null, false, {message: 'Invalid password', status: 401, attribute: "password"});
          } else {
             return done(null, user);
          }
@@ -85,6 +85,42 @@ app.use('/', authenticate);
 app.use('/movie', movieRoutes);
 app.use('/screening', screeningRoutes);
 app.use('/user', userRoutes);
+
+// catch error from movie db
+app.use(function(err, req, res, next) {
+  console.log(err);
+  if (err.response && err.response.text) {
+    res.status(err.status || 500);
+    res.send(err.response.text);
+  } else {
+    next(err);
+  }
+});
+
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
+  app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.send({
+      message: err.message,
+      error: err
+    });
+    return;
+  });
+}
+
+// production error handler
+// no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+  res.send({
+    message: err.message,
+    error: {}
+  });
+  return;
+});
+
 
 
 
