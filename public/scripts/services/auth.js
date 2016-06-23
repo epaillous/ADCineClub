@@ -18,9 +18,11 @@ angular.module('cineclub')
           $cookies.put('cineclub.user', JSON.stringify(user));
       },
       isLoggedIn : function(){
-        var current_user = user || JSON.parse($cookies.get('cineclub.user'));
-        user = current_user;
-        return(current_user)? current_user : false;
+        var cookie_user = $cookies.get('cineclub.user');
+        if (cookie_user && !user) {
+          user = JSON.parse(cookie_user);
+        }
+        return(user)? user : false;
       },
       login: function(email, password){
           return $http.post("/login", {email: email, password: password});
