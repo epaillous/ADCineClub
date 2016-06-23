@@ -19,6 +19,8 @@ var app = express();
 var db  = require('./db');
 var User = require('./models/user');
 
+var config_db = require('./knexfile.js');
+
 var config = {
     dpath: './admin_config/',
     config: require('./admin_config/config.json'),
@@ -27,7 +29,7 @@ var config = {
     custom: require('./admin_config/custom.json'),
 };
 
-config.config.pg.db = process.env.DATABASE_URL;
+config.config.pg = config_db[app.get('env')].connection;
 
 adminApp.init(config, function (err, admin) {
   app.use('/admin', admin);

@@ -1,7 +1,4 @@
 {
-    "pg": {
-        "database": "cineclub"
-    },
     "server": {
         "port": 3000
     },
