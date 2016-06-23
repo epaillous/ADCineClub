@@ -5,7 +5,7 @@ module.exports = {
     connection: {
       database: 'cineclub'
     }
-  }
+  },
 
   production: {
     client: 'postgresql',
