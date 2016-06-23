@@ -1,16 +1,15 @@
 module.exports = {
 
   development: {
-    client: 'postgresql',
+    client: 'pg',
     connection: {
       database: 'cineclub'
     }
   },
 
   production: {
-    client: 'postgresql',
-    connection: {
-      database: 'cineclub'
-    }
+    client: 'pg',
+    connection: process.env.DATABASE_URL,
+    ssl: true
   }
 }
