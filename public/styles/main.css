@@ -89,6 +89,7 @@ body {
   margin: 4px;
   width:18%;
   height: auto;
+  position: relative;
 }
 
 .movie-poster-vitrine {
@@ -105,13 +106,14 @@ body {
 .film-description {
   width: 100%;
   height: 100%;
-  display: table-column;
-  position: relative;
+  position: absolute;
   left: 0px;
   top: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
 }
 .film-box:hover .film-description {
-  background-color: rgba(0, 0, 0, 0.5);
+  display: block;
 }
 
 .movies {
@@ -130,12 +132,30 @@ body {
 }
 
 .movie-link {
-  display: table;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  margin: auto;
+  width: 100%;
+  height: 100%;
 }
 
 .movie-poster {
   max-width: 100%;
   height: auto;
+}
+
+.like-btn {
+  background: url('../img/like-empty.png') no-repeat;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+}
+
+.like-btn:hover {
+  background: url('../img/like.png') no-repeat;
 }
 
 .glyphicon {
