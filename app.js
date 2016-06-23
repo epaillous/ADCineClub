@@ -32,7 +32,7 @@ var config = {
 config.config.pg = config_db[app.get('env')].connection;
 
 adminApp.init(config, function (err, admin) {
-  if !(err) {
+  if (!(err)) {
     app.use('/admin', admin);
   } else {
     console.log(err);
