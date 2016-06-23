@@ -27,6 +27,8 @@ var config = {
     custom: require('./admin_config/custom.json'),
 };
 
+config.config.pg.db = process.env.DATABASE_URL;
+
 adminApp.init(config, function (err, admin) {
   app.use('/admin', admin);
 });
