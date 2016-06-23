@@ -31,9 +31,9 @@ var config = {
 
 config.config.pg = config_db[app.get('env')].connection;
 
-adminApp.init(config, function (err, admin) {
-  app.use('/admin', admin);
-});
+// adminApp.init(config, function (err, admin) {
+//   app.use('/admin', admin);
+// });
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
