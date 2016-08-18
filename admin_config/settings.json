@@ -115,6 +115,37 @@
                 "editview": {
                     "show": false
                 }
+            },
+            {
+                "verbose": "Movies liked",
+                "name": "movies_liked",
+                "control": {
+                    "select": true,
+                    "multiple": true
+                },
+                "type": "integer",
+                "allowNull": true,
+                "listview": {
+                    "show": false
+                },
+                "editview": {
+                    "show": true
+                },
+                "manyToMany": {
+                    "link": {
+                        "table": "movies_users",
+                        "parentPk": "user_id",
+                        "childPk": "movie_id"
+                    },
+                    "ref": {
+                        "table": "movies",
+                        "pk": "id",
+                        "columns": [
+                            "mdb_id",
+                            "id"
+                        ]
+                    }
+                }
             }
         ],
         "mainview": {
@@ -397,7 +428,7 @@
             }
         ],
         "mainview": {
-            "show": true
+            "show": false
         },
         "listview": {
             "order": {},
@@ -433,7 +464,7 @@
             }
         ],
         "mainview": {
-            "show": true
+            "show": false
         },
         "listview": {
             "order": {},
@@ -470,110 +501,6 @@
             {
                 "name": "movie_id",
                 "verbose": "movie_id",
-                "control": {
-                    "text": true
-                },
-                "type": "integer",
-                "allowNull": true,
-                "defaultValue": null,
-                "listview": {
-                    "show": true
-                },
-                "editview": {
-                    "show": true
-                }
-            }
-        ],
-        "mainview": {
-            "show": true
-        },
-        "listview": {
-            "order": {},
-            "page": 25
-        },
-        "editview": {
-            "readonly": false
-        }
-    },
-    "screenings_users": {
-        "slug": "screenings_users",
-        "table": {
-            "name": "screenings_users",
-            "pk": "",
-            "verbose": "screenings_users"
-        },
-        "columns": [
-            {
-                "name": "screening_id",
-                "verbose": "screening_id",
-                "control": {
-                    "text": true
-                },
-                "type": "integer",
-                "allowNull": true,
-                "defaultValue": null,
-                "listview": {
-                    "show": true
-                },
-                "editview": {
-                    "show": true
-                }
-            },
-            {
-                "name": "user_id",
-                "verbose": "user_id",
-                "control": {
-                    "text": true
-                },
-                "type": "integer",
-                "allowNull": true,
-                "defaultValue": null,
-                "listview": {
-                    "show": true
-                },
-                "editview": {
-                    "show": true
-                }
-            }
-        ],
-        "mainview": {
-            "show": true
-        },
-        "listview": {
-            "order": {},
-            "page": 25
-        },
-        "editview": {
-            "readonly": false
-        }
-    },
-    "screenings_movies": {
-        "slug": "screenings_movies",
-        "table": {
-            "name": "screenings_movies",
-            "pk": "",
-            "verbose": "screenings_movies"
-        },
-        "columns": [
-            {
-                "name": "movie_id",
-                "verbose": "movie_id",
-                "control": {
-                    "text": true
-                },
-                "type": "integer",
-                "allowNull": true,
-                "defaultValue": null,
-                "listview": {
-                    "show": true
-                },
-                "editview": {
-                    "show": true
-                }
-            },
-            {
-                "name": "screening_id",
-                "verbose": "screening_id",
                 "control": {
                     "text": true
                 },
