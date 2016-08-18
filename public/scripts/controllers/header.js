@@ -8,9 +8,9 @@
  * Controller of the cineclub
  */
 angular.module('cineclub')
-  .controller('HeaderCtrl', function ($scope, $location) {
-    $scope.query = "";
+  .controller('HeaderCtrl', function($scope, $location) {
+    $scope.query = '';
     $scope.searchAction = function(){
-        $location.path("/search/" + $scope.query);
+        $location.path('/search/' + $scope.query);
     };
   });

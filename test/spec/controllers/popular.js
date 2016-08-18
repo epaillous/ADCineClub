@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: PopularCtrl', function () {
+describe('Controller: PopularCtrl', function(){
 
   // load the controller's module
   beforeEach(module('angularJshelloWorldApp'));
@@ -9,7 +9,7 @@ describe('Controller: PopularCtrl', function () {
     scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
+  beforeEach(inject(function($controller, $rootScope){
     scope = $rootScope.$new();
     PopularCtrl = $controller('PopularCtrl', {
       $scope: scope
@@ -17,7 +17,7 @@ describe('Controller: PopularCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
+  it('should attach a list of awesomeThings to the scope', function(){
     expect(PopularCtrl.awesomeThings.length).toBe(3);
   });
 });

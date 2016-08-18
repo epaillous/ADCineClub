@@ -8,7 +8,7 @@
  * Controller of the cineclub
  */
 angular.module('cineclub')
-  .controller('ScreeningsCtrl', function ($scope, serviceAjax) {
+  .controller('ScreeningsCtrl', function($scope, serviceAjax){
     $scope.currentPage = 1;
     $scope.totalPages = 0;
 

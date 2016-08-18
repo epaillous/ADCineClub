@@ -8,7 +8,7 @@
  * Controller of the cineclub
  */
 angular.module('cineclub')
-  .controller('PopularCtrl', function ($scope, serviceAjax) {
+  .controller('PopularCtrl', function($scope, $location, serviceAjax){
     $scope.currentPage = 1;
     $scope.totalPages = 0;
 
@@ -22,6 +22,15 @@ angular.module('cineclub')
         $scope.pageChanged = function(){
             loadMovies();
         };
+    };
+
+    $scope.goToMovie = function(movie) {
+       $location.path('/movie/' + movie.id);
+    };
+    $scope.likeMovie = function(movie) {
+        serviceAjax.like(movie).success(function(data) {
+            console.log(data);
+        });
     };
     loadMovies();
   });

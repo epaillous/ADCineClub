@@ -8,7 +8,7 @@
  * Controller of the cineclub
  */
 angular.module('cineclub')
-  .controller('MovieCtrl', function ($scope, $routeParams, serviceAjax) {
+  .controller('MovieCtrl', function($scope, $routeParams, serviceAjax){
     var getDetailMovie = function(){
         $scope.loading = true;
         var id = $routeParams.id;

@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: NavigationCtrl', function () {
+describe('Controller: NavigationCtrl', function(){
 
   // load the controller's module
   beforeEach(module('cineclub'));
@@ -9,7 +9,7 @@ describe('Controller: NavigationCtrl', function () {
     scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
+  beforeEach(inject(function($controller, $rootScope){
     scope = $rootScope.$new();
     NavigationCtrl = $controller('NavigationCtrl', {
       $scope: scope
@@ -17,7 +17,7 @@ describe('Controller: NavigationCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
+  it('should attach a list of awesomeThings to the scope', function(){
     expect(NavigationCtrl.awesomeThings.length).toBe(3);
   });
 });

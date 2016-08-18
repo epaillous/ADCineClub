@@ -8,7 +8,7 @@
  * Controller of the cineclub
  */
 angular.module('cineclub')
-  .controller('SearchCtrl', function ($scope, $routeParams, serviceAjax) {
+  .controller('SearchCtrl', function($scope, $routeParams, serviceAjax) {
     $scope.query = $routeParams.query;
     $scope.currentPage = 1;
     $scope.totalPages = 0;
