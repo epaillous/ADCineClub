@@ -8,28 +8,18 @@
  * Factory in the cineclub.
  */
 angular.module('cineclub')
-  .factory('auth', function ($http, $cookies) {
-  var user;
+  .factory('auth', function($http, $rootScope){
 
   return {
-      setUser : function(aUser){
-          var existing_cookie_user = $cookies.get('cineclub.user');
-          user = aUser || existing_cookie_user;
-          $cookies.put('cineclub.user', JSON.stringify(user));
-      },
-      isLoggedIn : function(){
-        var cookie_user = $cookies.get('cineclub.user');
-        if (cookie_user && !user) {
-          user = JSON.parse(cookie_user);
-        }
-        return(user)? user : false;
+      isLoggedIn: function(){
+        return ($rootScope.current_user) ? $rootScope.current_user : false;
       },
       login: function(email, password){
-          return $http.post("/login", {email: email, password: password});
+          return $http.post('/login', {email: email, password: password});
       },
-      register: function(first_name, last_name, email, password) {
-          var data = {email: email, password: password, first_name: first_name, last_name: last_name};
-          return $http.post("/register", data, {'Content-Type': 'application/x-www-form-urlencoded'});
+      register: function(firstName, lastName, email, password) {
+          var data = {email: email, password: password, first_name: firstName, last_name: lastName};
+          return $http.post('/register', data, {'Content-Type': 'application/x-www-form-urlencoded'});
       }
-    }
+    };
   });

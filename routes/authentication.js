@@ -13,6 +13,7 @@ var sign_in = function(req, res, next) {
       if (err) {
         return next(err);
       }
+      console.log(user);
       return res.send(user);
     });
   })(req, res, next);
@@ -43,5 +44,9 @@ router.post('/register', function(req, res, next) {
       }
    });
 });
+
+router.get('/login', function checkSignin(req, res) {
+  res.send(req.isAuthenticated() ? req.user : '');
+})
 
 module.exports = router;

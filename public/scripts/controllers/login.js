@@ -8,12 +8,12 @@
  * Controller of the cineclub
  */
 angular.module('cineclub')
-  .controller('LoginCtrl', function ($scope, $location, auth) {
+  .controller('LoginCtrl', function($scope, $location, $rootScope, auth){
     $scope.dataLoading = false;
     $scope.login = function() {
       $scope.dataLoading = true;
       auth.login($scope.email, $scope.password).then(function(response){
-        auth.setUser(response.data);
+        $rootScope.currentUser = response.user;
         $location.path('/');
       }, function(response){
         // request failed
@@ -22,7 +22,7 @@ angular.module('cineclub')
       });
     };
 
-    $scope.resetErrors = function() {
-      $scope.form['email'].unknown = false;
-    }
+    $scope.resetErrors = function(){
+      $scope.form.email.unknown = false;
+    };
   });

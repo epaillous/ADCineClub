@@ -14,6 +14,7 @@ var movieRoutes = require('./routes/movie');
 var userRoutes = require('./routes/user');
 var screeningRoutes = require('./routes/screening');
 var authenticate = require('./routes/authentication');
+var session = require('express-session');
 
 var app = express();
 var db  = require('./db');
@@ -31,7 +32,7 @@ var config = {
 
 config.config.pg = config_db[app.get('env')].connection;
 
-adminApp.init(config, function (err, admin) {
+adminApp.init(config, function(err, admin) {
   if (!(err)) {
     app.use('/admin', admin);
   } else {
@@ -53,7 +54,7 @@ app.set('views', __dirname + '/public/views');
 
 // passport
 //app.use(flash());
-//app.use(express.session({ secret: 'so secret' }));
+app.use(session({secret: 'cineclub_'}))
 app.use(passport.initialize());
 app.use(passport.session());
 
